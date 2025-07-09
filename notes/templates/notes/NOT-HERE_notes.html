@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Notes</title>
+  </head>
+
+  <body>
+    <h3>-- NOT THIS -- Notes app</h3>
+    {% if notes_list %}
+    <h4>Notes:</h4>
+    <ul>
+      {% for note in notes_list %}
+      <li>{{ note }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No notes found</p>
+    {% endif %}
+    <h4>Add a note</h4>
+    <form action="/notes/add/" method="POST">
+      {% csrf_token %}
+      <input type="text" name="note" />
+      <input type="submit" value="Save" />
+    </form>
+  </body>
+</html>

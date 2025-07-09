@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Notes</title>
+    {% load static %}
+    <link
+      rel="shortcut icon"
+      type="image/icon"
+      href="{% static 'favicon.ico' %}"
+    />
+  </head>
+
+  <body>
+    <h3>Notes app</h3>
+    <!-- FLAW 6/7 - Sensitive Data Exposure -->
+    <!-- <h5 style="color: coral">user: {{request.user.username}}</h5> -->
+    <!-- __INFO PRINT HERE__ -->
+    {% if notes_list %}
+    <h4>Notes:</h4>
+    <ul>
+      {% for note in notes_list %}
+      <li>{{ note }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No notes found</p>
+    {% endif %}
+    <h4>Add a note</h4>
+    <form action="/notes/add/" method="POST">
+      {% csrf_token %}
+      <input type="text" name="note" />
+      <input type="submit" value="Save" />
+    </form>
+    <br />
+    <form action="/notes/erase/" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Clear notes" />
+    </form>
+    <br />
+    <form action="/logout/" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Logout" />
+    </form>
+  </body>
+</html>

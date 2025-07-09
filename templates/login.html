@@ -1,0 +1,7 @@
+{% load static %}
+<link rel="shortcut icon" type="image/icon" href="{% static 'favicon.ico' %}" />
+<h3>Login to Notes server</h3>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
