@@ -21,14 +21,15 @@ import notes.views
 
 urlpatterns = [
     # FLAW 4 - Security Misconfiguration -
-    # path('', notes.views.loginView, name='login'),
-    # path('login/', notes.views.loginView, name='login'),
-    # path('notes/login/', notes.views.loginView, name='login'),
-    # path('logout/', notes.views.logoutView, name='logout'),
+    path('', notes.views.loginView, name='login'),
+    path('login/', notes.views.loginView, name='login'),
+    path('notes/login/', notes.views.loginView, name='login'),
+    path('logout/', notes.views.logoutView, name='logout'),
     # FIX 4 - Security Misconfiguration -
-    path('', LoginView.as_view(template_name='login.html'), name='login'),
-    path('login/', LoginView.as_view(template_name='login.html' ), name='login'),
-    path('logout/', LogoutView.as_view(next_page="/login" ), name='logout'),
+    # path('', LoginView.as_view(template_name='login.html'), name='login'),
+    # path('login/', LoginView.as_view(template_name='login.html' ), name='login'),
+    # path('notes/login/', LoginView.as_view(template_name='login.html' ), name='login'),
+    # path('logout/', LogoutView.as_view(next_page="/login" ), name='logout'),
     #
     path('notes/', include('notes.urls')),
     path('admin/', admin.site.urls),

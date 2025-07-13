@@ -5,5 +5,4 @@ from django.contrib.auth.models import User
 
 class Note(models.Model):
     content = models.TextField()
-    # XXX do we need primary_key=True?
     user = models.ForeignKey(User, on_delete=models.CASCADE)

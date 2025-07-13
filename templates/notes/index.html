@@ -12,8 +12,9 @@
   {% load static %}
   <body>
     <h3>Notes app login</h3>
-    <form action="/notes/login/" method="POST">
-      <!--<form action="/notes/login/" method="GET">-->
+    <!-- FLAW 1 - Broken Authentication -->
+    <!--<form action="/notes/login/" method="POST">-->
+    <form action="/notes/login/" method="GET">
       <!--{% csrf_token %}-->
 
       <label for="username">Username:</label><br />
