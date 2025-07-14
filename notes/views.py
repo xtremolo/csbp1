@@ -212,19 +212,19 @@ def allView(request):
 # ###
 # ### FLAW 5 - Broken Access Control -
 # ###
-#     # only allow access for admin
-#     if (request.user.username == 'admin'):
-#         data = Note.objects.all()
-#         notes = [note.content + '|' + note.user.username for note in data]
-#         return render(request, 'notes/notes.html', {'notes_list': notes})
-#     # otherwise send to login page
-#     else:
-#         return redirect('/')
-# # # ### FLAW 5 - Broken Access Control -
-# #     # allow access for all
-# #     data = Note.objects.all()
-# #     notes = [note.content + '|' + note.user.username for note in data]
-# #     return render(request, 'notes/notes.html', {'notes_list': notes})
+#    # if (request.user.username == 'admin'):
+#    # # only allow access for admin
+#    #     data = Note.objects.all()
+#    #     notes = [note.content + '|' + note.user.username for note in data]
+#    #     return render(request, 'notes/notes.html', {'notes_list': notes})
+#    # # otherwise send to login page
+#    # else:
+#    #     return redirect('/')
+# # ### FLAW 5 - Broken Access Control -
+#     # allow access for all
+#     data = Note.objects.all()
+#     notes = [note.content + '|' + note.user.username for note in data]
+#     return render(request, 'notes/notes.html', {'notes_list': notes})
 
 #### Model views end here ####
 
